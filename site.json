@@ -1,0 +1,9 @@
+{
+  "title": "ShellPig's Shelf",
+  "tagline": "把每一件作品，一件件擺上架。",
+  "intro": "嗨，我是 ShellPig。這裡擺放我做過的個人專案——量化工具、瀏覽器小遊戲、獨立遊戲。歡迎逐件點開看看。",
+  "contacts": [
+    { "label": "GitHub", "icon": "github", "url": "https://github.com/shellpig" },
+    { "label": "Email", "icon": "mail", "url": "mailto:shellpig@gmail.com" }
+  ]
+}

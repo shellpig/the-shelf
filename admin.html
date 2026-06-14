@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="zh-Hant">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>後台 — ShellPig's Shelf</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+TC:wght@400;500&family=Noto+Serif+TC:wght@500&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="lib/cropper.min.css">
+  <link rel="stylesheet" href="css/admin.css">
+</head>
+<body>
+  <div class="wrap">
+    <h1>作品後台</h1>
+    <p class="sub">編輯 projects.json，圖片拖曳上傳、封面自動裁切 16:9。僅供本機使用。</p>
+
+    <div class="toolbar">
+      <button id="btn-folder" class="primary">選擇專案資料夾</button>
+      <button id="btn-save">儲存 projects.json</button>
+      <button id="btn-new">＋ 新增作品</button>
+      <span class="status" id="status">尚未選擇資料夾</span>
+      <span class="status" id="flash" style="color:var(--accent);transition:opacity .3s;opacity:0"></span>
+    </div>
+
+    <div class="warn" id="fs-warn" style="display:none">
+      此瀏覽器不支援 File System Access API，無法直接讀寫檔案與儲存圖片。請改用 Chrome 或 Edge。
+      （仍可編輯，按儲存會以下載方式輸出 projects.json，但圖片無法存檔。）
+    </div>
+
+    <section class="section">
+      <h2>目前作品（共 <span id="count">0</span> 件）</h2>
+      <ul class="plist" id="plist"></ul>
+    </section>
+
+    <section class="section" id="editor">
+      <h2 id="editing-label">新增作品</h2>
+
+      <div class="field">
+        <label for="f-title">標題</label>
+        <input type="text" id="f-title" placeholder="作品名稱">
+      </div>
+      <div class="field">
+        <label for="f-id">網址 id（英數與連字號，留空自動由標題產生）</label>
+        <input type="text" id="f-id" placeholder="auto">
+      </div>
+      <div class="field">
+        <label for="f-summary">簡述（約 2 行，卡片與細節頁共用）</label>
+        <textarea id="f-summary" style="min-height:60px"></textarea>
+      </div>
+
+      <div class="field">
+        <label>技術棧</label>
+        <div class="chips" id="tech-chips"></div>
+        <div class="tagedit">
+          <input type="text" id="tech-in" placeholder="輸入一個技術，按 Enter 或新增">
+          <button id="btn-addtech" class="ghost">新增</button>
+        </div>
+      </div>
+
+      <div class="field">
+        <label>封面圖（固定 16:9，輸出 1280×720）</label>
+        <div class="drop" id="cover-drop">拖曳圖片到這裡，或點擊選檔 → 裁切</div>
+        <div class="cover-preview" id="cover-preview"></div>
+      </div>
+
+      <div class="field">
+        <label>細節頁圖庫（截圖，保留原比例，可多張）</label>
+        <div class="drop" id="gallery-drop">拖曳多張圖片到這裡，或點擊選檔</div>
+        <div class="gallery-preview" id="gallery-preview"></div>
+      </div>
+
+      <div class="field">
+        <label>連結</label>
+        <div id="links-list"></div>
+        <button id="btn-addlink" class="ghost">＋ 新增連結</button>
+      </div>
+
+      <div class="field">
+        <label for="f-readme">README 內容（markdown，顯示於細節頁）</label>
+        <div class="drop" id="md-drop" style="margin-bottom:10px">拖曳 .md 檔到這裡，或點擊選檔 → 自動填入下方（可再手動修改）</div>
+        <textarea id="f-readme" style="min-height:160px"></textarea>
+      </div>
+
+      <div class="formactions">
+        <button id="btn-saveform" class="primary">加入 / 更新清單</button>
+      </div>
+    </section>
+  </div>
+
+  <div class="modal-bg" id="crop-modal">
+    <div class="modal">
+      <h3>裁切封面（16:9）</h3>
+      <div class="crop-area"><img id="crop-img" alt="裁切預覽"></div>
+      <div class="modal-actions">
+        <button id="btn-cancelcrop">取消</button>
+        <button id="btn-confirmcrop" class="primary">確定裁切</button>
+      </div>
+    </div>
+  </div>
+
+  <script src="lib/cropper.min.js"></script>
+  <script src="js/admin.js"></script>
+</body>
+</html>
