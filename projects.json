@@ -65,6 +65,27 @@
     ]
   },
   {
+    "id": "ai-roundtable",
+    "title": "AI Roundtable",
+    "summary": "本機多 AI 圓桌討論工具。用一個瀏覽器介面同時召集多個模型發言、追問、整理共識，適合用來做第二意見、方案比較與長篇問題拆解。",
+    "tech": [
+      "Python",
+      "HTML",
+      "CSS",
+      "JavaScript",
+      "Codex CLI"
+    ],
+    "cover": "images/ai-roundtable-cover.jpg?t=1783306316007",
+    "images": [],
+    "readme": "# AI Roundtable\n\n> 一個本機執行的多 AI 圓桌討論工具，把多個模型放到同一張桌上，讓它們針對同一個問題各自發言、互相補充，再由使用者收斂成可採取的結論。\n\nAI Roundtable 不是聊天機器人包裝頁，而是給個人工作流使用的「多模型會議室」。它適合拿來做方案比較、程式碼設計討論、文件草稿審閱、決策前的第二意見，以及需要不同模型視角交叉檢查的問題。\n\n---\n\n## 這是什麼\n\n一般單一模型聊天很快，但容易只有一個角度。AI Roundtable 的目標是讓使用者用很低的成本召開一場小型討論：每個席位代表一個模型或一種 CLI provider，使用者提出問題後，各席位依序產生回覆，整段討論會保存在本機 transcript 中，方便後續回看與整理。\n\n核心定位是：\n\n```text\n提出問題\n  -> 多個 AI 席位分別回答\n  -> 使用者追問或指定方向\n  -> 保留完整討論紀錄\n  -> 萃取可執行的結論\n```\n\n---\n\n## 特色\n\n- **多席位討論**：把不同 AI 模型放在同一個 roundtable 中，方便比較觀點與交叉檢查。\n- **本機優先**：使用 Python stdlib HTTP server 與純前端頁面，資料留在本機資料夾中。\n- **Transcript 保存**：討論紀錄同步保存為結構化 JSONL 與 Markdown，方便人工閱讀或交給其他工具後處理。\n- **CLI 串接**：透過本機 CLI 呼叫模型 provider，讓既有命令列工作流可以接進同一個 UI。\n- **單席取消**：某個模型卡在思考中時，可以只取消該席位，不影響其他席位或整場討論。\n- **公開 repo 安全化**：本機資料、虛擬環境與快取目錄預設排除，不把個人 transcript 或環境設定放進版本庫。\n\n---\n\n## 適合用途\n\n| 場景 | 用法 |\n|---|---|\n| 架構討論 | 讓不同模型分別指出風險、替代方案與實作順序 |\n| 程式碼 review | 取得第二意見，再由使用者判斷哪些問題真的成立 |\n| 文件打磨 | 比較不同模型對措辭、結構與遺漏資訊的看法 |\n| 決策前檢查 | 把優缺點、風險、待確認事項攤開，不只聽單一模型結論 |\n| 長篇問題拆解 | 讓模型分工提出假設、反例、測試方式與下一步 |\n\n---\n\n## 技術棧\n\n- **後端**：Python stdlib HTTP server\n- **前端**：原生 HTML / CSS / JavaScript\n- **模型呼叫**：本機 CLI provider 整合\n- **資料格式**：JSONL transcript + Markdown transcript\n- **執行方式**：Windows 批次檔啟動本機服務與瀏覽器介面\n\n---\n\n## Quick Start\n\n1. Clone repo。\n2. 建立 Python venv 並安裝需要的本機 CLI 工具。\n3. 依照自己的環境設定 provider 相關環境變數。\n4. 執行 `start.cmd` 啟動本機服務。\n5. 在瀏覽器介面輸入問題，讓多個 AI 席位開始討論。\n\n本工具偏向個人本機工作流；API key、CLI 設定與 transcript 都應留在自己的電腦，不應提交到 public repo。\n\n---\n\n## 開發狀態\n\n目前已具備基本 roundtable UI、後端呼叫流程、討論紀錄保存，以及單席取消功能。後續可再依實際使用情境擴充席位設定、討論模板、摘要輸出與更細的錯誤提示。\n\n---\n\n## 授權\n\n本專案為個人工具，目前以 GitHub repo 內容為準。使用前請自行確認模型 provider、CLI 工具與 API key 的授權與費用規則。\n",
+    "links": [
+      {
+        "label": "GitHub",
+        "url": "https://github.com/shellpig/ai-roundtable"
+      }
+    ]
+  },
+  {
     "id": "sparkote",
     "title": "Sparkote",
     "summary": "由現實任務驅動的療癒探索遊戲。把現實中完成的自我照顧小任務化為能量，驅動郵差萊拉在迷霧群島間探索送信，讓世界一塊塊變得完整。",
