@@ -85,7 +85,10 @@ Visit https://shellpig.github.io/the-shelf/ — nothing to install.
 | 1 | **FactorHammer** | TW/US stock quantitative research & backtesting tool — local, offline, no live trading. |
 | 2 | **Warboard Theater** | Browser-based 3D historical battle theater — timeline-driven replay with auto-directing camera. |
 | 3 | **After The Model** | 2D side-scrolling cyberpunk exploration game set in 2030 — play as an ordinary person after AI reshaped the world. |
-| 4 | **Sparkote** | A healing exploration game driven by real-life self-care tasks — guide a postal carrier across misty islands. |
+| 4 | **AI Roundtable** | Local multi-AI roundtable tool — convene several models in one browser UI to answer, cross-question, and converge on a consensus. |
+| 5 | **Sparkote** | A healing exploration game driven by real-life self-care tasks — guide a postal carrier across misty islands. |
+| 6 | **List-Smith** | A reusable checklist app — snapshot a template into a one-off checklist, then choose which changes to feed back into the template. |
+| 7 | **Would You Rather** | Traditional-Chinese "would you rather" quiz site — pick one of two each round, watch live site-wide ratios update instantly, get a shareable result card. |
 
 ---
 
