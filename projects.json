@@ -1,5 +1,28 @@
 [
   {
+    "id": "adventure-table",
+    "title": "Adventure Table",
+    "summary": "以實體桌上跑團為核心的 D&D 5e 2014 Web VTT；角色建立、角色卡、升級、房間與隊伍名冊已可用，並預留 AI 透過 MCP／Site Tools 加入遊戲。",
+    "tech": [
+      "Python",
+      "FastAPI",
+      "PostgreSQL",
+      "React",
+      "TypeScript",
+      "Vite",
+      "Docker"
+    ],
+    "cover": "images/adventure-table-cover.jpg?t=1788771944662",
+    "images": [],
+    "readme": "# Adventure Table\n\n> 一個輕量、桌上跑團優先的 D&D 5e 2014 Web VTT。真人 DM 仍以口頭敘事帶領遊戲，網站專注處理共享、同步、規則計算、保存、權限與未來的 AI 接入。\n\n朋友間私人使用，非商品化平台；介面與正式呈現的規則內容支援繁體中文與英文。\n\n---\n\n## 專案定位\n\nAdventure Table 希望保留實體跑團自由、直接的互動方式，同時補上數位工具擅長的部分：\n\n- 共用角色與房間狀態\n- 角色規則計算與驗證\n- 角色建立、升級與版本保存\n- Campaign 與 Party Roster 管理\n- 房間權限與多人同步基礎\n- 未來讓外部 AI 透過 MCP／Site Tools，以 DM 或 Player 身分進入同一套 Game State\n\n網站本身不直接串接 LLM API；AI 桌內接入仍屬後續規劃。\n\n---\n\n## 目前能力\n\n角色端目前已具備：\n\n- Character Workshop、Lv1 與高等級創角\n- Multiclass、Subclass、ASI、Feat、Spellcasting 與 Starting Equipment\n- Character Sheet 與 Current State 編輯\n- Level Up、Build Edit 與 Version History\n- Archive、永久刪除與角色卡 HTML 匯出\n- 以 SRD 5.1 為基礎的多來源角色內容\n- `zh-TW`／`en` 雙語介面與規則內容\n\n多人 Web 部分已建立 Room-first 架構，角色、草稿、匯入與匯出都收進 Room Character Workspace；Room 也能建立 Campaign 與 Party Roster。\n\n目前尚未完成 Session、Seat、Lobby、Exploration、Roll、Combat、Adventure Runtime 與正式 AI 桌內接入，因此仍處於角色系統與多人房間基礎建設階段。\n\n---\n\n## 技術棧\n\n- **後端**：Python 3.12+、FastAPI、SQLAlchemy、Alembic\n- **資料庫**：PostgreSQL 17\n- **前端**：React 19、TypeScript 5.9、Vite 8、TanStack Query\n- **規則內容**：version-controlled normalized JSON content packs，以 stable key 維持跨來源引用\n- **部署與開發**：Docker、Docker Compose\n- **測試**：pytest、Vitest、Playwright\n- **單機版本**：PyInstaller Windows standalone workflow\n\n---\n\n## 快速啟動\n\n需要 Docker 與 Docker Compose：\n\n```bash\ncp .env.example .env\ndocker compose up --build\n```\n\n啟動後：\n\n- Web app：`http://localhost:5173`\n- Backend health：`http://localhost:8000/health`\n- Backend readiness：`http://localhost:8000/ready`\n\nServer 啟動時會載入並驗證全部啟用的 content packs；schema、stable key 或 cross-reference 錯誤會直接中止啟動，避免帶著不一致的規則資料執行。\n\n---\n\n## 開發狀態\n\nP0、P1、M02、M03 已完成；長期角色內容維護軌 M01 已交付 A～N baseline。多人房間階段 P2 已完成 Room foundation、Room Character Workspace，以及 Campaign／Party Roster；下一步是 Seat 與 Lobby。\n\n這是一個持續開發中的私人跑團工具，距離完整的 Session 與戰鬥流程仍有一段距離。",
+    "links": [
+      {
+        "label": "GitHub",
+        "url": "https://github.com/shellpig/adventure-table"
+      }
+    ]
+  },
+  {
     "id": "factorhammer",
     "title": "FactorHammer",
     "summary": "台股／美股量化研究與回測工具，本機離線執行、不做實單交易。內建技術指標、雙回測引擎，並可選用 AI 輔助分析。",
